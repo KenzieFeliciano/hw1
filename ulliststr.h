@@ -5,7 +5,20 @@
 #define ARRSIZE 10
 class ULListStr {
  public:
-  struct Item {
+
+  int countNodes() const;
+
+  struct Item { 
+  // Note to self: 
+  //when we want to access the data inside each node, we use prev*, next*, first, last, val[].
+  // But, if we want to manipulate the node itself, we use what's listed in ULListStr
+  // like head_, tail_, size_.
+  // In this case, while struct Item represents one node, ULListStr is a class that represents the whole linked list.
+  // What is difference between class, struct, and object?
+  // Struct and class are both user defined, but struct defaults as public while class defaults
+  // as private. An object is an instance (variable) created from the struct/class definition.
+  // Use . with objects. Use -> with pointers to objects.
+
     std::string val[ARRSIZE];
     /**
      * first and last indicate the occupied/used 
@@ -61,6 +74,7 @@ class ULListStr {
    * Removes a value from the back of the list
    *   - MUST RUN in O(1)
    */
+
   void pop_back();
   
   /**
@@ -112,6 +126,8 @@ class ULListStr {
    * Deletes all items in the list
    */
   void clear();
+
+  int nodeCount() const;
 
  private:
   /** 
